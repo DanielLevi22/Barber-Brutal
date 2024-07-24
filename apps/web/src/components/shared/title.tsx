@@ -1,10 +1,10 @@
 export interface TituloProps {
     tag?: string
-    principal: string
-    secundario: string
+    primary: string
+    secondary: string
 }
 
-export default function Titulo(props: TituloProps) {
+export  function Title(props: TituloProps) {
     return (
         <div className="flex flex-col items-center gap-2">
             {props.tag && (
@@ -13,10 +13,10 @@ export default function Titulo(props: TituloProps) {
                 </div>
             )}
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gradient">
-                {props.principal}
+                {props.primary}
             </h2>
             <h3 className="text-zinc-500 md:w-[450px] px-7 md:px-0 text-center">
-                {props.secundario}
+                {props.secondary}
             </h3>
         </div>
     )

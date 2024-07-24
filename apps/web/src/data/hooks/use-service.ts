@@ -1,6 +1,6 @@
-import { service } from '@barba/core'
+import { service } from "@barber/core"
 
-export default function useServices() {
+export  function useServices() {
     return {
         service,
     }

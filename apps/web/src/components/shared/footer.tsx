@@ -5,9 +5,9 @@ import {
     IconBrandWhatsapp,
     IconBrandYoutube,
 } from '@tabler/icons-react'
-import Logo from './logo'
+import {Logo} from './logo'
 
-export default function Footer() {
+export  function Footer() {
     return (
         <footer className="flex items-center bg-black">
             <div className="container flex flex-col gap-7 py-10">

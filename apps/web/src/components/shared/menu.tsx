@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import Logo from './logo'
-import MenuUsuario from './user-menu'
+import {Logo} from './logo'
+import { UserMenu } from './user-menu'
 import  { useAuth } from '@/data/hooks/use-User'
 
 export  function Menu() {
@@ -14,7 +14,7 @@ export  function Menu() {
                 <Logo />
                 <div>
                     {user ? (
-                        <MenuUsuario usuario={user} />
+                        <UserMenu user={user} />
                     ) : (
                         <Link href="/entrar">Entrar</Link>
                     )}

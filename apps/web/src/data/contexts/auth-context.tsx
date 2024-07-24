@@ -1,7 +1,7 @@
 'use client'
 import { createContext, useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { User } from '@barba/core'
+import { User } from '@barber/core'
 import {useLocalStorage} from '../hooks/use-local-storage'
 
 export interface AuthContextProps {

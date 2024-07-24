@@ -1,7 +1,6 @@
-import { profissionais } from '@barba/core'
-
-export default function useProfissionais() {
+import { professionals } from '@barber/core'
+export  function useProfessionals() {
     return {
-        profissionais,
+        professionals,
     }
 }

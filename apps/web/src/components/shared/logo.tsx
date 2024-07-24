@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function Logo() {
+export  function Logo() {
     return (
         <Link href="/" className="flex items-center h-14">
             <Image src="/logo.png" alt="Logo" width={65} height={65} className="hidden sm:block" />
