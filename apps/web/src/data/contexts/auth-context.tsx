@@ -5,10 +5,10 @@ import { User } from '@barber/core'
 import {useLocalStorage} from '../hooks/use-local-storage'
 
 export interface AuthContextProps {
-    carregando: boolean
+    loading: boolean
     user: User | null
-    entrar: (user: User) => Promise<void>
-    sair: () => void
+    signIn: (user: User) => Promise<void>
+    signOut: () => void
 
 }
 
@@ -17,7 +17,7 @@ export const useAuthContext = createContext<AuthContextProps>({} as any)
 export function AuthProvider({ children }: { children: React.ReactNode }) {
     const { get, set } = useLocalStorage()
     const router = useRouter()
-    const [carregando, setCarregando] = useState(true)
+    const [loading, setLoading] = useState(true)
     const [user, setUser] = useState<User | null>(null)
 
     const loadingUser = useCallback(
@@ -28,18 +28,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                     setUser(userLocal)
                 }
             } finally {
-                setCarregando(false)
+                setLoading(false)
             }
         },
         [get]
     )
 
-    async function entrar(user: User) {
+    async function signIn(user: User) {
         setUser(user)
         set('user', user)
     }
 
-    function sair() {
+    function signOut() {
         router.push('/')
         setUser(null)
         set('user', null)
@@ -50,10 +50,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return (
         <useAuthContext.Provider
             value={{
-                carregando,
+                loading,
                 user,
-                entrar,
-                sair,
+                signIn,
+                signOut,
             }}
         >
             {children}

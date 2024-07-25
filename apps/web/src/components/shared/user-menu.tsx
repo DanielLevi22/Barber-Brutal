@@ -16,7 +16,7 @@ export interface userMenuProps {
 }
 
 export  function UserMenu(props: userMenuProps) {
-    const { sair } = useAuth()
+    const { signOut } = useAuth()
 
     return props.user ? (
         <DropdownMenu>
@@ -34,7 +34,7 @@ export  function UserMenu(props: userMenuProps) {
             <DropdownMenuContent>
                 <DropdownMenuLabel>Menu Usuário</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={sair}>Logout</DropdownMenuItem>
+                <DropdownMenuItem onClick={signOut}>Logout</DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     ) : null

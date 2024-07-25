@@ -16,7 +16,7 @@ export  function Menu() {
                     {user ? (
                         <UserMenu user={user} />
                     ) : (
-                        <Link href="/entrar">Entrar</Link>
+                        <Link href="/auth/sign-in">Entrar</Link>
                     )}
                 </div>
             </nav>
