@@ -25,6 +25,7 @@ function Option(props: {
                 alt={props.professional.name}
                 width={150}
                 height={150}
+                priority
             />
             <div
                 className={`

@@ -25,7 +25,7 @@ export default function UserForm() {
 
     return (
         <div className="flex justify-center items-center h-screen relative">
-            <Image src="/banners/principal.webp" fill alt="Barbearia" className="object-cover" />
+            <Image src="/banners/principal.webp" fill alt="Barbearia" className="object-cover"  priority/>
             <div
                 className="
                     flex flex-col justify-center items-center gap-10

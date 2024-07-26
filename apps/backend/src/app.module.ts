@@ -5,7 +5,7 @@ import { ServiceModule } from './service/service.module';
 import { ScheduleModule } from './schedule/schedule.module';
 
 @Module({
-  imports: [DbModule, ServiceModule, ScheduleModule],
+  imports: [ScheduleModule, ServiceModule, DbModule],
   controllers: [],
   providers: [],
 })

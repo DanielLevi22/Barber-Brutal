@@ -13,7 +13,7 @@ export  function Summary() {
         try {
             setLoading(true)
             await schedule()
-            router.push('/schedule/sucesso')
+            router.push('/schedule/success')
         } finally {
             setLoading(false)
         }

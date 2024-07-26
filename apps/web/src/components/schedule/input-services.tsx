@@ -19,6 +19,7 @@ function Option(props: { service: Service; onClick: (s: Service) => void; seleci
                 alt={props.service.name}
                 width={150}
                 height={120}
+                priority
             />
             <div
                 className={`

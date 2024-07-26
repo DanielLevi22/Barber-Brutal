@@ -26,6 +26,7 @@ export  function ItemProfessional(props: ItemProfessionalProps) {
                     fill
                     alt={props.professional.name}
                     className="object-cover object-top rounded-t-lg"
+                    priority
                 />
             </div>
             <div className="flex flex-col p-4 gap-5">

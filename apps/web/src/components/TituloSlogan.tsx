@@ -6,7 +6,7 @@ import { Menu } from '@/components/shared/menu'
 export function SloganTitle() {
     return (
         <div className="py-10 relative h-[700px]">
-            <Image src="/banners/principal.webp" fill alt="Barbearia" className="object-cover" />
+            <Image src="/banners/principal.webp" fill alt="Barbearia" className="object-cover" priority/>
             <div
                 className="
                     flex flex-col items-center

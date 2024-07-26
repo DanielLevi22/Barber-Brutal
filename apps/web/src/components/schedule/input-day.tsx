@@ -14,6 +14,7 @@ export  function InputDay(props: DiaInputProps) {
         const selecionado = data.getDate() === props.data.getDate()
         return (
             <div
+                key={data.getTime()}
                 onClick={() => props.dataMudou(data)}
                 className={`
                     flex-1 flex flex-col items-center gap-2 py-4 cursor-pointer

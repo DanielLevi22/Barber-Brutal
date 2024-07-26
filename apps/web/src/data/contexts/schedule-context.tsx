@@ -67,8 +67,8 @@ export function ScheduleProvider({ children }: { children: React.ReactNode }) {
         if (!user?.email) return
 
         await httpPost('schedules', {
-            emailCliente: user.email,
-            data: data!,
+            clientEmail: user.email,
+            date: data!,
             professional: professional!,
             services: services,
         })
@@ -89,7 +89,7 @@ export function ScheduleProvider({ children }: { children: React.ReactNode }) {
                 if (!data || !professional) return []
                 const dtString = data.toISOString().slice(0, 10)
                 const schedule = await httpGet(
-                    `agendamentos/schedule/${professional!.id}/${dtString}`
+                    `schedules/${professional!.id}/${dtString}`
                 )
                 return schedule ?? []
             } catch (e) {

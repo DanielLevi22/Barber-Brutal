@@ -21,6 +21,7 @@ export function ItemService(props: ItemServiceProps) {
                 height={150}
                 alt={props.service.name}
                 className="object-cover"
+                priority
             />
             <div className="flex flex-col p-5 gap-2">
                 <span className="text-xl font-black">{props.service.name}</span>

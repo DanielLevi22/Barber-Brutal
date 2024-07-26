@@ -13,7 +13,7 @@ export class ScheduleRepository implements ScheduleRepositoryCore {
     await this.prismaService.schedule.create({
       data: {
         clientEmail: schedule.clientEmail,
-        date: schedule.date,
+        date: new Date(schedule.date),
         professional: { connect: { id: schedule.professional.id } },
         services: {
           connect: schedule.services.map((service) => ({ id: service.id })),

@@ -1,1 +1,4 @@
 GET http://localhost:3333/service
+
+###
+GET http://localhost:3333/schedules/2/2024-07-26
