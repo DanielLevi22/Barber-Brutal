@@ -1,25 +1,25 @@
 import { IconCalendar } from '@tabler/icons-react'
 import { Loader2 } from 'lucide-react'
 import { useState } from 'react'
-import useAgendamento from '@/data/hooks/useAgendamento'
+import { useSchedule } from '@/data/hooks/useAgendamento'
 import { useRouter } from 'next/navigation'
 
-export default function Sumario() {
-    const [carregando, setCarregando] = useState(false)
-    const { data, profissional, servicos, precoTotal, duracaoTotal, agendar } = useAgendamento()
+export  function Summary() {
+    const [loading, setLoading] = useState(false)
+    const { data, professional, services, priceTotal, totalDuration, schedule } = useSchedule()
     const router = useRouter()
 
     async function finalizarAgendamento() {
         try {
-            setCarregando(true)
-            await agendar()
-            router.push('/agendamento/sucesso')
+            setLoading(true)
+            await schedule()
+            router.push('/schedule/sucesso')
         } finally {
-            setCarregando(false)
+            setLoading(false)
         }
     }
 
-    function renderizarServico(nome: string, i: number) {
+    function renderizarService(nome: string, i: number) {
         return (
             <div key={i} className="flex items-center  bg-zinc-700 rounded-md">
                 <span className="flex justify-center items-center text-xs text-zinc-400 px-3 bg-black/25 w-5 py-1.5">
@@ -30,9 +30,9 @@ export default function Sumario() {
         )
     }
 
-    function podeFinalizar() {
-        if (!profissional) return false
-        if (!servicos.length) return false
+    function canFinalize() {
+        if (!professional) return false
+        if (!services.length) return false
         return data && data.getHours() >= 8 && data.getHours() <= 21
     }
 
@@ -55,20 +55,20 @@ export default function Sumario() {
                 <div className="flex flex-col gap-3">
                     <span className="text-xs uppercase text-zinc-400">Profissional</span>
                     <span className="text-sm text-white">
-                        {profissional ? profissional.nome : 'Não selecionado'}
+                        {professional ? professional.name : 'Não selecionado'}
                     </span>
                 </div>
                 <div className="flex flex-col gap-3">
                     <span className="text-xs uppercase text-zinc-400">Serviços</span>
                     <span className="flex gap-2 flex-wrap text-sm text-white">
-                        {servicos.length
-                            ? servicos.map((servico, i) => renderizarServico(servico.nome, i + 1))
+                        {services.length
+                            ? services.map((service, i) => renderizarService(service.name, i + 1))
                             : 'Não selecionado'}
                     </span>
                 </div>
                 <div className="flex flex-col gap-3">
                     <span className="text-xs uppercase text-zinc-400">Duração</span>
-                    <span className="text-sm text-white">{duracaoTotal()}</span>
+                    <span className="text-sm text-white">{totalDuration()}</span>
                 </div>
                 <div className="flex flex-col gap-3">
                     <span className="text-xs uppercase text-zinc-400">Horário</span>
@@ -85,15 +85,15 @@ export default function Sumario() {
 
             <div className="flex justify-between items-center border-b border-zinc-800 p-5">
                 <span className="text-xs uppercase text-zinc-400">Valor Total</span>
-                <span className=" text-white font-semibold">R$ {precoTotal()},00</span>
+                <span className=" text-white font-semibold">R$ {priceTotal()},00</span>
             </div>
             <div className="p-5">
                 <button
-                    className={`flex justify-center items-center text-sm font-semibold ${podeFinalizar() ? 'bg-yellow-400' : 'bg-zinc-600'} text-zinc-900 w-full py-3 rounded-lg`}
-                    disabled={!podeFinalizar()}
+                    className={`flex justify-center items-center text-sm font-semibold ${canFinalize() ? 'bg-yellow-400' : 'bg-zinc-600'} text-zinc-900 w-full py-3 rounded-lg`}
+                    disabled={!canFinalize()}
                     onClick={finalizarAgendamento}
                 >
-                    {carregando && data ? (
+                    {loading && data ? (
                         <Loader2 className="animate-spin" size={32} />
                     ) : (
                         'Finalizar Agendamento'

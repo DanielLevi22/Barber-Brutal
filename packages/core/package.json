@@ -1,12 +1,17 @@
 {
   "name": "@barber/core",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+        "dev": "tsup src/index.ts --dts --watch",
+        "build": "tsup src/index.ts --dts --minify"
+    },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+        "tsup": "^8.1.2",
+        "typescript": "^5.5.3"
+    }
 }

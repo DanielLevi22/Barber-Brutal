@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function AgendadoComSucesso() {
+export default function ScheduleSuccess() {
     return (
         <>
             <Image src="/agendamento.png" width={400} height={400} alt="Agendado com Sucesso" />

@@ -1,11 +1,11 @@
-import { DataUtils } from '@barba/core'
+import { DataUtils } from '@barber/core'
 
 export interface DiaInputProps {
     data: Date
     dataMudou(data: Date): void
 }
 
-export default function DiaInput(props: DiaInputProps) {
+export  function InputDay(props: DiaInputProps) {
     function renderizarDia(data: Date) {
         if (data.getDay() === 0) {
             data.setDate(data.getDate() + 1)
@@ -44,7 +44,7 @@ export default function DiaInput(props: DiaInputProps) {
             <span className="text-sm uppercase text-zinc-400">Dias Disponíveis</span>
             <div className="flex gap-5 bg-zinc-950 rounded-lg overflow-hidden">
                 {Array.from({ length: 7 })
-                    .map((_, i) => new Date(DataUtils.hoje().getTime() + 86400000 * i))
+                    .map((_, i) => new Date(DataUtils.today().getTime() + 86400000 * i))
                     .filter((date) => date.getDay() !== 0)
                     .map((date) => renderizarDia(date))}
             </div>
